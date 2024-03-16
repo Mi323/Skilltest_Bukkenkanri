@@ -18,6 +18,11 @@
                 <h3>物件登録</h3>
                 <form action="{{ route('store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
+
+                    <label for="number">物件番号:</label>
+                    <input type="text" id="number" name="number">
+                    @if ($errors->has('number'))<span class="error">{{ $errors->first('number') }}</span>@endif
+
                     <label for="date">竣工日:</label>
                     <input type="date" id="date" name="date">
                     @if($errors->has('date')) <span class="error">{{$errors->first('date')}}</span> @endif
@@ -42,22 +47,11 @@
                 </form>
             </div>
 
-            <h3>物件一覧</h3>
-            @if(session('flash_message'))
-                <div class="flash_message">
-                    {{ session('flash_message') }}
-                </div>
-            @endif
-            @if(session('flash_error_message'))
 
-
-                <div class="flash_error_message">
-                    {{ session('flash_error_message') }}
-                </div>
-            @endif
             <table>
                 <thead>
                     <tr>
+                        <th>物件番号</th>
                         <th>竣工日</th>
                         <th>物件住所</th>
                         <th>物件価格</th>
@@ -68,6 +62,7 @@
                 <tbody>
                     @foreach($bukkenkanris as $bukkenkanri)
                     <tr>
+                        <td>{{$bukkenkanri->number}}</td>
                         <td>{{$bukkenkanri->date}}</td>
                         <td>{{$bukkenkanri->address}}</td>
                         <td>{{$bukkenkanri->price}}</td>

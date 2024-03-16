@@ -43,6 +43,7 @@ class BukkenkanriController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
+                    'number' => 'required|string',
                     'date' => 'required|date',
                     'address' => 'required|string',
                     'price' => 'required|numeric',
@@ -52,6 +53,7 @@ class BukkenkanriController extends Controller
                 ]);
 
         $bukkenkanri = new BukkenKanri();
+        $bukkenkanri->number=$request->number;
         $bukkenkanri->date=$request->date;
         $bukkenkanri->address=$request->address;
         $bukkenkanri->price=$request->price;
@@ -118,6 +120,7 @@ class BukkenkanriController extends Controller
     public function update(Request $request, String $id)
     {
         $validated = $request->validate([
+            'number' => 'required|string',
             'date' => 'required|date',
             'address' => 'required|string',
             'price' => 'required|numeric',
@@ -129,6 +132,7 @@ class BukkenkanriController extends Controller
 
         $bukkenkanri=BukkenKanri::find($id);
         if($bukkenkanri->exists()){
+            $bukkenkanri->number=$request->input('number');
             $bukkenkanri->date=$request->input('date');
             $bukkenkanri->address=$request->input('address');
             $bukkenkanri->price=$request->input('price');

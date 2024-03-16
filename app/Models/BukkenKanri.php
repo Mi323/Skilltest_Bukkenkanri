@@ -14,6 +14,7 @@ class BukkenKanri extends Model
     protected $table = 'bukken_kanris';
 
     protected $fillable = [
+        'number',
         'date',
         'address',
         'price',

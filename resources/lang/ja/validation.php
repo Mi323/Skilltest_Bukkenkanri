@@ -120,6 +120,7 @@ return [
         'name' => 'ユーザー名',
         'email' => 'メールアドレス',
         'password' => 'パスワード',
+        'number'=>'物件番号',
         'date'=>'日付',
         'address'=>'住所',
         'price'=>'価格'

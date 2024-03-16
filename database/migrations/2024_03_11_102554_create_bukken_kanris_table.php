@@ -15,6 +15,7 @@ class CreateBukkenKanrisTable extends Migration
     {
         Schema::create('bukken_kanris', function (Blueprint $table) {
             $table->id();
+            $table->string('number');
             $table->date('date');
             $table->string('address');
             $table->string('price');

@@ -17,6 +17,10 @@
                 @method('put')
                 <input type="hidden"  id="id" name="id" value={{$bukkenkanri->id}} enctype="multipart/form-data">
 
+                <label for="number">物件番号:</label>
+                <input type="text" id="number" name="number" value={{$bukkenkanri->number}}>
+                @if ($errors->has('number'))<span class="error">{{ $errors->first('number') }}</span>@endif
+
                 <label for="date">竣工日:</label>
                 <input type="date" id="date" name="date" value={{$bukkenkanri->date}}>
                 @if($errors->has('date'))<span class="error">{{ $errors->first('date') }}</span>@endif

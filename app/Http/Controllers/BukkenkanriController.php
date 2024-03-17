@@ -167,9 +167,9 @@ class BukkenkanriController extends Controller
 
             $bukkenkanri->update();
 
-            session()->flash('flash_message', '更新しました。');
+            session()->flash('flash_message', '編集しました。');
         } else {
-            session()->flash('flash_error_message', '更新できませんでした。');
+            session()->flash('flash_error_message', '編集できませんでした。');
         }
 
 

@@ -55,7 +55,7 @@
 
 
                 <div class="button-container">
-                    <button type="submit" class="edit-button">更新</button>
+                    <button type="submit" class="edit-button">編集</button>
                     <input type="button"  class="back-button" value="戻る" onclick="window.location.href='{{ url('/') }}'">
                 </div>
             </form>

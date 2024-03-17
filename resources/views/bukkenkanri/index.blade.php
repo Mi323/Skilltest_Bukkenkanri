@@ -14,6 +14,17 @@
     <section class="container">
         <div class="balance">
 
+            @if(session('flash_message'))
+                <div class="flash_message">
+                    {{ session('flash_message') }}
+                </div>
+            @endif
+            @if(session('flash_error_message'))
+                <div class="flash_error_message">
+                    {{ session('flash_error_message') }}
+                </div>
+            @endif
+
             <div class="add-balance">
                 <h3>物件登録</h3>
                 <form action="{{ route('store') }}" method="POST" enctype="multipart/form-data">
@@ -82,7 +93,7 @@
 
                         <td class="button-td">
                             <form action="{{route('bukkenkanri.edit', ['id'=>$bukkenkanri->id])}}" method="">
-                                <input type="submit" value="更新" class="edit-button">
+                                <input type="submit" value="編集" class="edit-button">
                             </form>
                             <form action="{{route('bukkenkanri.destroy', ['id'=>$bukkenkanri->id])}}" method="POST">
                                 @csrf
